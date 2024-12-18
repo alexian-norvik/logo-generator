@@ -71,6 +71,9 @@ You MUST start your prompt with `Logo of`.
 You can learn about the style types here: {STYLE_TYPE_DEFINITIONS}.
 Understand the colors hex code and mention the color names in the prompt.
 Write the prompt in 2, 3 sentences.
+Make sure that logo final result is minimalistic.
 Describe the logo in details.
 Background MUST ALWAYS be white, NO OTHER COLORS.
+It's important to write the business name correctly, without any typo.
+NO OTHER TEXT THAN BUSINESS NAME.
 """
