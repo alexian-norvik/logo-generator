@@ -53,6 +53,7 @@ async def generate_logo(business_name: str, style_type: str, keywords: list, col
         prompt=prompt,
         aspect_ratio="1:1",
         person_generation="allow_all",
+        negative_prompt="typo in text",
         guidance_scale=100.0,
     )
 
