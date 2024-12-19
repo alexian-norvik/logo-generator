@@ -7,6 +7,7 @@ from vertexai.preview.vision_models import ImageGenerationModel
 
 import config
 from common import openai_constants
+from common.utils import retry
 
 
 async def generate_prompt(business_name: str, style_type: str, keywords: list, colors: list) -> str:
@@ -35,17 +36,8 @@ async def generate_prompt(business_name: str, style_type: str, keywords: list, c
     return generated_prompt
 
 
-async def generate_logo(business_name: str, style_type: str, keywords: list, colors: list) -> str:
-    """
-    Generate logo
-    :param business_name: Name of the business or brand.
-    :param style_type: Chosen style type.
-    :param keywords: List of keywords that describe user's business.
-    :param colors: Chosen color palette.
-    :return: Generated logo in PNG format
-    """
-    logging.info("Starting to generate logo...")
-    prompt = await generate_prompt(business_name=business_name, style_type=style_type, keywords=keywords, colors=colors)
+@retry(3, 1)
+def generate_image(prompt: str):
     vertexai.init(project=config.PROJECT_ID, location=config.LOCATION)
     imagen_model = ImageGenerationModel.from_pretrained(model_name=openai_constants.IMAGEN_3_MODEL)
 
@@ -63,6 +55,20 @@ async def generate_logo(business_name: str, style_type: str, keywords: list, col
 
     with open(f"logos/{image_id}.png", mode="wb") as image:
         image.write(generated_image_bytes)
+
+
+async def generate_logo(business_name: str, style_type: str, keywords: list, colors: list) -> str:
+    """
+    Generate logo
+    :param business_name: Name of the business or brand.
+    :param style_type: Chosen style type.
+    :param keywords: List of keywords that describe user's business.
+    :param colors: Chosen color palette.
+    :return: Generated logo in PNG format
+    """
+    logging.info("Starting to generate logo...")
+    prompt = await generate_prompt(business_name=business_name, style_type=style_type, keywords=keywords, colors=colors)
+    generate_image(prompt=prompt)
 
     return "image saved successfully."
 
