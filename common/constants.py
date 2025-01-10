@@ -1,1 +1,1 @@
-STYLE_TYPES = ["Combo", "Abstract", "Statement", "Badge", "Hand-drawn", "Character", "Stamp"]
+STYLE_TYPES = ["Abstract", "Statement", "Badge", "Hand-drawn", "Character"]
