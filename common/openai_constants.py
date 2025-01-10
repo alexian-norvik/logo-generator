@@ -5,54 +5,36 @@ IMAGEN_3_MODEL = "imagen-3.0-fast-generate-001"
 STYLE_TYPE_DEFINITIONS = """
 Here’s an explanation of the listed logo types:
 
-### 1. **Combo Logo**
-- **Definition**: A logo that combines text and imagery or symbols.
-- **Details**:
-  - Often includes the company name along with a visual icon or illustration.
-  - The text and the visual elements can be used together or separately.
-  - **Examples**: Burger King (text + visual icon).
+### ** Abstract Logo **
 
-### 2. **Abstract Logo**
-- **Definition**: A logo that uses geometric or abstract shapes that do not directly represent a recognizable object.
-- **Details**:
-  - Focuses on creating a unique visual identity using abstract design.
-  - Relies on symbolism and association rather than literal representation.
-  - **Examples**: Nike swoosh, Pepsi.
+- Definition: Incorporates shapes, forms, or patterns to symbolize an idea rather than portraying a literal image.
+- Examples: Nike “Swoosh,” Pepsi’s circular swirl.
+- Key Traits: Minimalist, symbolic, geometric, often uses stylized shapes to convey concepts.
 
-### 3. **Statement Logo**
-- **Definition**: A logo designed to convey a bold, impactful message or reflect the brand’s core identity in a prominent way.
-- **Details**:
-  - Often text-heavy or slogan-driven, focusing on the brand's name or mission.
-  - Sometimes integrates minimal graphic elements to support the message.
-  - **Examples**: Supreme (simple text conveying exclusivity and boldness).
+### ** Statement Logo (Wordmark/Lettermark) **
 
-### 4. **Badge Logo**
-- **Definition**: A logo that resembles a traditional emblem or crest.
-- **Details**:
-  - Features a contained design often circular, shield-shaped, or badge-like in structure.
-  - Typically used for sports teams, breweries, or heritage brands.
-  - **Examples**: Starbucks, Harley-Davidson.
+- Definition: Primarily text-based. A wordmark uses the full brand name, and a lettermark focuses on initials or abbreviations.
+- Examples: Google (wordmark), IBM (lettermark).
+- Key Traits: Typography-centric, emphasizes brand name or initials, often uses distinctive fonts or lettering.
 
-### 5. **Hand-drawn Logo**
-- **Definition**: A logo that features custom-drawn elements to give a personal, organic feel.
-- **Details**:
-  - Emphasizes authenticity and creativity.
-  - Often used by artisanal, creative, or niche brands.
-  - **Examples**: Brands in food, craft, and artistic industries (e.g., bakeries, handmade goods).
+### ** Badge Logo (Emblem) **
 
-### 6. **Character Logo**
-- **Definition**: A logo that features a mascot or character representing the brand.
-- **Details**:
-  - Helps create a friendly and approachable brand personality.
-  - Often used in family-friendly or food-related businesses.
-  - **Examples**: KFC (Colonel Sanders), Michelin (Michelin Man).
+- Definition: Contains text and imagery within a contained shape (e.g., circle, shield, crest). Resembles emblems or seals.
+- Examples: Many sports team logos, academic crests, traditional crests.
+- Key Traits: Traditional look, official or heritage feel, often includes the brand name or symbol inside a bordered shape.
 
-### 7. **Stamp Logo**
-- **Definition**: A logo designed to look like a stamp or seal.
-- **Details**:
-  - Often features circular or rectangular designs with text around the border and a central element.
-  - Used to convey trust, authenticity, or vintage style.
-  - **Examples**: Logos for coffee brands, craft breweries, or boutique brands.
+
+### ** Hand-drawn Logo **
+
+- Definition: Appears sketched or illustrated by hand, conveying a personal or artisanal aesthetic.
+- Examples: Quirky doodle-like café logos, boutique or craft brand logos.
+- Key Traits: Imperfect lines, illustrative style, organic or whimsical feel.
+
+### ** Character Logo (Mascot) **
+
+- Definition: Showcases a character or mascot as the focal point.
+- Examples: KFC’s Colonel, Chester Cheetah (Cheetos).
+- Key Traits: Personified figure or mascot, adds approachability or playful identity, commonly used in food, sports, or entertainment.
 
 Each of these styles serves a distinct purpose and reflects the brand's identity, values, and target audience.
 """
@@ -67,13 +49,17 @@ You are responsible to write accurate prompts for visual-language model in order
 - Style Type: Style type of the logo.
 - Colors: color palette
 
-You MUST start your prompt with `Logo of`.
-You can learn about the style types here: {STYLE_TYPE_DEFINITIONS}.
-Understand the colors hex code and mention the color names in the prompt.
-Write the prompt in 2, 3 sentences.
-Make sure that logo final result is minimalistic.
-Describe the logo in details.
-Background MUST ALWAYS be white, NO OTHER COLORS.
-It's important to write the business name correctly, without any typo.
-NO OTHER TEXT THAN BUSINESS NAME.
+# Key Directive:
+
+- You MUST start your prompt with `Logo of`.
+- You MUST learn about the style types here: {STYLE_TYPE_DEFINITIONS}.
+- Understand the colors hex code and mention the color names in the prompt.
+- Describe the logo in details.
+- Background MUST ALWAYS be white, NO OTHER COLORS.
+- IMPORTANT to write the business name correctly and show in the logo correctly, WITHOUT any typo.
+- NO OTHER TEXT REPRESENTATION THAN BUSINESS NAME.
+- ALWAYS PUT THE BUSINESS NAME IN DOUBLE QUOTES like: "business name".
+- Write the business name like this: featuring the word "business name".
+- Write that "IMAGE SHOULD ONLY CONTAIN THE BUSINESS NAME AS A WORD".
+- REMEMBER When generating or displaying a logo concept, do not include any additional text beyond the user’s business name.
 """
