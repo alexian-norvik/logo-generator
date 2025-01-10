@@ -1,5 +1,6 @@
 annotated-types==0.7.0
 anyio==4.7.0
+beautifulsoup4==4.12.3
 cachetools==5.5.0
 certifi==2024.12.14
 cfgv==3.4.0
@@ -27,6 +28,7 @@ httpx==0.28.1
 identify==2.6.3
 idna==3.10
 jiter==0.8.2
+lxml==5.3.0
 nodeenv==1.9.1
 numpy==2.2.0
 openai==1.57.4
@@ -48,7 +50,9 @@ rsa==4.9
 shapely==2.0.6
 six==1.17.0
 sniffio==1.3.1
+soupsieve==2.6
 tqdm==4.67.1
 typing_extensions==4.12.2
 urllib3==2.2.3
 virtualenv==20.28.0
+vtracer==0.6.11
