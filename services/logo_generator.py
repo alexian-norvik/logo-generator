@@ -7,7 +7,6 @@ from typing import Optional
 
 import vtracer
 import vertexai
-from bs4 import BeautifulSoup
 from PIL import Image
 from vertexai.preview.vision_models import ImageGenerationModel
 
@@ -88,16 +87,11 @@ def convert_image_to_svg(image_b64: str) -> Optional[str]:
                 layer_difference=60,
             )
 
-            with open(f"logo-{str(uuid.uuid4())}.svg", mode="w") as file:
-                file.write(svg)
+        svg = svg.replace('<?xml version="1.0" encoding="UTF-8"?>', "").replace(
+            "<!-- Generator: visioncortex VTracer 0.6.4 -->", ""
+        )
 
-            parser = BeautifulSoup(svg, "xml")
-            paths = parser.find_all("path")
-            icon_svg_paths = ""
-            for path in paths:
-                icon_svg_paths += str(path)
-
-        return icon_svg_paths
+        return svg
     except Exception as e:
         logging.error(f"Failed to convert the png to svg, error message: {e}")
 
